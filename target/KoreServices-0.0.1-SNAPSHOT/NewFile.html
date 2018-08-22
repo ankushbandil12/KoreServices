@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+ 
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "https://bots.kore.ai/chatbot/hooks/st-7a3a708e-3478-50be-bc3f-65028631703f", true);
+  xhhtp.setRequestHeader("Authorization","bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmt1c2guYmFuZGlsQHRjcy5jb20ifQ.qAhQBO3qiyR8uEEZqW0tBD2ZJTIe49Bz-hyEajSacqk");
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send('{"message":{"text": "hi"},"from": {"id":"ankush.bandil@tcs.com"},"to": {"id": "st-7a3a708e-3478-50be-bc3f-65028631703f"}}');
+}
+</script>
+
+</body>
+</html>
